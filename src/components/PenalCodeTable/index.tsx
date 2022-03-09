@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import { Skeleton } from "antd";
 import { PlusSquareOutlined, EditOutlined, EyeOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import { api } from "../../services/api";
 
-
 import { Container } from "./styles";
 
 import policeIcon from "../../assets/police.svg";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface PenalCodesProps {
   id: number;
@@ -36,7 +36,9 @@ export function PenalCodeTable() {
           </span>
           <h1>Códigos Penais</h1>
         </div>
-        <PlusSquareOutlined style={{ fontSize: '24px', color: '#00959E' }} />
+        <Link to="/register">
+          <PlusSquareOutlined style={{ fontSize: '24px', color: '#00959E' }} />
+        </Link>
       </header>
 
       {loading ? <Skeleton active /> :
