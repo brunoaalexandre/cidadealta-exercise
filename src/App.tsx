@@ -1,5 +1,10 @@
+import { PenalCodesProvider } from "./hooks/usePenalCodes";
 import RoutesApp from "./routes";
 
 export function App() {
-  return <RoutesApp />
+  return (
+    <PenalCodesProvider>
+      <RoutesApp />
+    </PenalCodesProvider>
+  )
 }

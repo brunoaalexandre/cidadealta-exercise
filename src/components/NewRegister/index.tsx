@@ -1,30 +1,27 @@
-import { FormEvent, useState } from "react";
-import { api } from "../../services/api";
+import { FormEvent, useState, useContext } from "react";
+import { usePenalCodes } from "../../hooks/usePenalCodes";
 
 import { ButtonContainer, Container, RadioBox } from "./styles";
 
 export function NewRegister() {
+  const { createPenalCode } = usePenalCodes();
+
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [value, setValue] = useState(0);
   const [time, setTime] = useState(0);
   const [status, setStatus] = useState(1);
 
-  const codigopenal = {
-    id: 4,
-    nome: name,
-    descricao: description,
-    dataCriacao: new Date(),
-    tempoPrisao: time,
-    multa: value,
-    status: status,
-  }
 
   async function handleCreateNewRegister(event: FormEvent) {
     event.preventDefault()
 
-    await api.post('codigopenal', { codigopenal })
-      .then(response => console.log(response.data));
+    await createPenalCode({
+      nome: name,
+      descricao: description,
+      multa: value,
+      status: status
+    })
 
     setName('');
     setDescription('');

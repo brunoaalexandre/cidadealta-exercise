@@ -1,31 +1,14 @@
-import { useEffect, useState } from "react";
 import { Skeleton } from "antd";
 import { PlusSquareOutlined, EditOutlined, EyeOutlined, DeleteOutlined } from "@ant-design/icons";
-
-import { api } from "../../services/api";
-
-import { Container } from "./styles";
-
-import policeIcon from "../../assets/police.svg";
 import { Link } from "react-router-dom";
 
-interface PenalCodesProps {
-  id: number;
-  nome: string;
-  dataCriacao: string;
-  multa: number;
-  status: number
-}
+import policeIcon from "../../assets/police.svg";
+
+import { Container } from "./styles";
+import { usePenalCodes } from "../../hooks/usePenalCodes";
 
 export function PenalCodeTable() {
-  const [codes, setCodes] = useState<PenalCodesProps[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    api.get('codigopenal')
-      .then(response => setCodes(response.data))
-      .then(() => setLoading(false));
-  }, []);
+  const { codes, loading } = usePenalCodes();
 
   return (
     <Container style={{ background: '#fff' }}>
