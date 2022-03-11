@@ -71,11 +71,6 @@ export const Container = styled.main`
         }
 
         &:nth-child(2) {
-          background: #00FFC2;
-          margin-left: 5px;
-        }
-
-        &:nth-child(3) {
           background: #D20F32;
           margin-left: 5px;
         }

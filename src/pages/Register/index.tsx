@@ -1,8 +1,11 @@
 import { Main } from "../../components/Main";
 import { NewRegister } from "../../components/NewRegister";
+import { Login } from "../Login";
 
 export function Register() {
-  return(
-    <Main content={<NewRegister />}  />
-  );
+  if (!localStorage.getItem("@pmcda-token")) {
+    return <Login />;
+  } else {
+    return <Main content={<NewRegister />} />;
+  }
 }

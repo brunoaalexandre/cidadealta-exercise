@@ -1,14 +1,16 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { Register } from './pages/Register';
+import { BrowserRouter, Routes, Route, } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Register } from "./pages/Register";
+import { View } from "./pages/View";
 
 export default function RoutesApp() {
-  return(
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/view/:id" element={<View />} />
+        </Routes>
     </BrowserRouter>
   );
 }

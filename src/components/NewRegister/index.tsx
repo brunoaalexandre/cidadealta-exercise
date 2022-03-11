@@ -6,25 +6,24 @@ import { ButtonContainer, Container, RadioBox } from "./styles";
 export function NewRegister() {
   const { createPenalCode } = usePenalCodes();
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [value, setValue] = useState(0);
   const [time, setTime] = useState(0);
   const [status, setStatus] = useState(1);
 
-
   async function handleCreateNewRegister(event: FormEvent) {
-    event.preventDefault()
+    event.preventDefault();
 
     await createPenalCode({
       nome: name,
       descricao: description,
       multa: value,
-      status: status
-    })
+      status: status,
+    });
 
-    setName('');
-    setDescription('');
+    setName("");
+    setDescription("");
     setTime(0);
     setValue(0);
     setStatus(1);
@@ -38,7 +37,7 @@ export function NewRegister() {
           type="text"
           placeholder="Ex: Dinheiro ilícito"
           value={name}
-          onChange={event => setName(event.target.value)}
+          onChange={(event) => setName(event.target.value)}
           required
         />
 
@@ -47,7 +46,7 @@ export function NewRegister() {
           type="text"
           placeholder="Ex: Estar em posse de dinheiro não declaro ou de nat..."
           value={description}
-          onChange={event => setDescription(event.target.value)}
+          onChange={(event) => setDescription(event.target.value)}
           required
         />
 
@@ -56,7 +55,7 @@ export function NewRegister() {
           type="number"
           placeholder="Ex: 900"
           value={value}
-          onChange={event => setValue(Number(event.target.value))}
+          onChange={(event) => setValue(Number(event.target.value))}
           required
         />
         <label>Tempo de Prisão:</label>
@@ -64,7 +63,7 @@ export function NewRegister() {
           type="number"
           placeholder="Ex: 15"
           value={time}
-          onChange={event => setTime(Number(event.target.value))}
+          onChange={(event) => setTime(Number(event.target.value))}
           required
         />
         <label>Status:</label>
@@ -86,9 +85,7 @@ export function NewRegister() {
         </RadioBox>
 
         <ButtonContainer>
-          <button type="submit">
-            Cadastrar
-          </button>
+          <button type="submit">Cadastrar</button>
         </ButtonContainer>
       </form>
     </Container>

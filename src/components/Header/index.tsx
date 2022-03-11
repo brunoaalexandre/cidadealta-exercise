@@ -1,5 +1,6 @@
-import { Layout } from "antd";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import { Dropdown, Layout, Menu } from "antd";
+import { MenuUnfoldOutlined, MenuFoldOutlined, LogoutOutlined } from "@ant-design/icons";
+
 import { Content } from "./styles";
 
 const { Header } = Layout;
@@ -9,18 +10,25 @@ interface CollapsedProps {
   handleOnCollapse: () => void;
 }
 
-export function HeaderComponent({ collapse, handleOnCollapse }: CollapsedProps) {
+export function HeaderComponent({
+  collapse,
+  handleOnCollapse,
+}: CollapsedProps) {
+
+  function handleLogout() {
+    localStorage.removeItem("@pmcda-token");
+    document.location.reload();
+  }
+
   return (
     <Header style={{ padding: 0, backgroundColor: "#fff" }}>
       <Content>
-        <button type="button" onClick={handleOnCollapse} style={{ fontSize: '20px'}}>
-          {collapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        </button>
-        <div>
-          <span>B</span>
+        <div onClick={handleLogout}>
+          <span>
+            <LogoutOutlined />
+          </span>
         </div>
       </Content>
-
     </Header>
   );
 }

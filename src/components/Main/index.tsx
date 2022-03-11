@@ -1,6 +1,5 @@
 import { Layout } from "antd";
 import { useState } from "react";
-
 import { HeaderComponent } from "../../components/Header";
 import { SiderComponent } from "../../components/Sider";
 
@@ -20,14 +19,17 @@ export function Main({ content }: MainProps) {
   }
   return (
     <Layout>
-      <SiderComponent collapse={collapsed} handleOnCollapse={handleOnCollapse} />
+      <SiderComponent
+        collapse={collapsed}
+        handleOnCollapse={handleOnCollapse}
+      />
       <Layout>
-        <HeaderComponent collapse={collapsed} handleOnCollapse={handleOnCollapse} />
+        <HeaderComponent
+          collapse={collapsed}
+          handleOnCollapse={handleOnCollapse}
+        />
         {content}
       </Layout>
     </Layout>
-
   );
 }
-
-
