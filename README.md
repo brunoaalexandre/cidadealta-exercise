@@ -17,6 +17,12 @@ So, that's all, folks! ❤️
   - <a href="https://github.com/axios/axios">Axios</a>
   - <a href="https://my-json-server.typicode.com/">My JSON Server</a>
 
+# What to improve?
+## The application has some improvements to be made, among them:
+  - Responsivity
+  - The login method
+  - Implement edit function of the penal codes.
+
 # How to install
 
 ### Clone the repository
